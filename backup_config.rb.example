@@ -1,0 +1,37 @@
+module BackupConfig
+###############################################################################
+#######  Configuration Section 
+###############################################################################
+#######  Copy this file to backup_config.rb then fill out the appropriate information for your servers.
+#######  e.g. cp backup_config.rb.example backup_config.rb
+
+
+# Need to specify the full path because the job runs under cron
+MYSQLDUMP  = '/usr/local/mysql/bin/mysqldump'
+
+# Where you want the backups to be stored
+BACKUP_DIR = "/Users/user_home/backups"
+
+# What databases you want backed up
+DATABASES   = %w(database1 database2)
+DB_HOST     = 'localhost'
+DB_USERNAME = 'root'
+DB_PASSWORD = 'password'
+
+SFTP           = true       # highly recommended
+FTP_FILES      = true
+FTP_SERVER     = 'www.ftpserverurl.com'
+FTP_BACKUP_DIR = '/var/my_backups'
+FTP_USER       = 'login'
+FTP_PASSWORD   = 'password'
+
+SEND_EMAIL_ALERTS  = true    # highly recommended
+EMAIL_FROM         = 'backup@yourdomain.com'
+EMAIL_NOTIFICATION = 'notifyme@email.com'
+
+### Configure your SMTP Server Settings
+ActionMailer::Base.smtp_settings = { :address => 'localhost',
+                                     :port => 25,
+                                     :domain => 'yourdomain.com'}
+                                     
+end
