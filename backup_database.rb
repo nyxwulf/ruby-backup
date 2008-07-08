@@ -49,6 +49,7 @@ def compress_file(file_name)
   puts "Compressing #{file_name}"
   gzip_file = file_name.gsub(File.extname(file_name), '.tar.gz')
   `tar -czf #{gzip_file} #{file_name}`
+  File.delete(file_name) if REMOVE_ORIGINAL_FILE
   gzip_file
 end
 

@@ -18,6 +18,8 @@ DB_HOST     = 'localhost'
 DB_USERNAME = 'root'
 DB_PASSWORD = 'password'
 
+REMOVE_ORIGINAL_FILE = true  # only keeps the compressed file if set to true
+
 SFTP           = true       # highly recommended
 FTP_FILES      = true
 FTP_SERVER     = 'www.ftpserverurl.com'
